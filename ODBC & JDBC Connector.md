@@ -1,4 +1,4 @@
-ODBC & JDBC Connector:
+**ODBC & JDBC Connector:**
 
 ** TNS entry **
 
