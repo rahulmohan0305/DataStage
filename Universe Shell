@@ -1,0 +1,37 @@
+** Universe Shell **
+
+
+$ps -ef | grep -i DSD.RUN (respective job name) -> To find the process ID.
+
+To use Datastage command line(universe shell)
+$../dsenv
+$bin/uvsh
+
+To Kill a job,
+>LOGTO (Project name)
+>LOGOUT -(process ID)
+
+To clear the file or job lock issue,
+>LIST.READU ALL
+>LIST.READU EVERY
+>UNLOCK INODE(inode number) ALL 
+>UNLOCK USER(user number) ALL
+
+To fix corrupted job issue,
+>CLEAR.FILE RT_LOG(XX)
+>CLEAR.FILE DATA RT_LOG(XX)
+
+When trying to clear a job lock from UV you see the error Verb "Unlock" is not in your VOC. So we need the UNLOCK command added to our Project VOC.
+>set.file uv voc uv.voc 
+>copy from uv.voc to voc unlock
+>QUIT
+
+When datastage file system becomes full or any system crash occurs. RT_LOGxxx files can become corrupted.
+
+>DELETE.FILE DATA RT_LOG(xx) 
+>CREATE.FILE DATA RT_LOG(xx)
+DS_JOBS jobname -> To find job number
+
+xx -> Job number
+Universe Shell.txt
+Displaying Universe Shell.txt.
